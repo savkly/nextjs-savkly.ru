@@ -1,4 +1,4 @@
-# Nextjs rss news filter
+# Next.js rss news filter
 This is a demo project for [Timeweb Cloud Apps](https://timeweb.cloud/services/apps). You can freely use it in your developments
 
 ## Getting Started
