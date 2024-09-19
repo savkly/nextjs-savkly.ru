@@ -26,4 +26,5 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 To learn more about Next.js, take a look at the following resources:
 
 - [Deployment instructions](https://timeweb.cloud/tutorials/authors/sergej-durmanov) - all my instructions with work examples.
-
+- [Online demo](http://nextjs-news-filter-h1etjd2tf-tecspdas-projects.vercel.app) - live demo
+    
