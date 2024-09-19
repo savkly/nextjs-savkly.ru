@@ -27,6 +27,7 @@ export default function Home() {
     }
   }, [filterWords]);
 
+  // Загрузка RSS ленты
   const fetchRssFeed = async () => {
     try {
       const response = await axios.get('/api/rss');
@@ -43,7 +44,7 @@ export default function Home() {
 
       setRssItems(items);
       setShowMessage(true); // Показать сообщение "обновлено"
-    setTimeout(() => setShowMessage(false), 2000); // Скрыть через 2 секунды
+      setTimeout(() => setShowMessage(false), 2000); // Скрыть через 2 секунды
     } catch (err) {
       setError('Не удалось загрузить RSS ленту');
     } finally {
@@ -51,10 +52,12 @@ export default function Home() {
     }
   };
 
+  // При монтировании загружаем RSS ленту
   useEffect(() => {
     fetchRssFeed();
   }, []);
 
+  // Фильтрация новостей по ключевым словам
   useEffect(() => {
     if (filterWords) {
       const words = filterWords
@@ -75,14 +78,17 @@ export default function Home() {
     }
   }, [filterWords, rssItems]);
 
+  // Обработчик изменения текста в textarea
   const handleFilterChange = (event) => {
     setFilterWords(event.target.value);
   };
 
+  // Показать/скрыть новость
   const toggleVisibility = (index) => {
     setVisibleItem((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  // Подсветка текста
   const highlightText = (text, words) => {
     if (!words.length) return text;
 
@@ -90,16 +96,19 @@ export default function Home() {
     return text.replace(regex, (match) => `<mark>${match}</mark>`);
   };
 
+  // Подсветка заголовка
   const highlightedTitle = (title, words) => {
     const safeWords = words.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); // Экранирование спецсимволов
     return <span dangerouslySetInnerHTML={{ __html: highlightText(title, safeWords) }} />;
   };
 
+  // Подсветка описания
   const highlightedDescription = (description, words) => {
     const safeWords = words.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); // Экранирование спецсимволов
     return <span dangerouslySetInnerHTML={{ __html: highlightText(description, safeWords) }} />;
   }
 
+  // Подсветка категории
   const highlightedCategory = (category, words) => {
     const safeWords = words.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); // Экранирование спецсимволов
     return <span className="category" dangerouslySetInnerHTML={{ __html: highlightText(category, safeWords) }} />;
@@ -108,6 +117,7 @@ export default function Home() {
   if (loading) return <p>Загрузка...</p>;
   if (error) return <p>Ошибка: {error}</p>;
 
+  // Преобразование строки с ключевыми словами в массив
   const filterWordsArray = filterWords
     .split('\n')
     .map((word) => word.trim().toLowerCase())
@@ -117,7 +127,7 @@ export default function Home() {
     <div className="page">
       {showMessage && <div className="update-message fade-in">Обновлено</div>}
       <h1 className="mb-20">Фильтр новостей MK.ru по ключевым словам</h1>
-      
+
       <textarea
         placeholder="Введите ключевые слова (одно на строке)"
         value={filterWords}
