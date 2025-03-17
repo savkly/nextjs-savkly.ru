@@ -1,3 +1,7 @@
+- 🔗 **Оригинальный репозиторий**: [nextjs-rss-news-filter](https://github.com/tecspda/nextjs-rss-news-filter/)
+- ✍️ **Автор**: [tecspda](https://github.com/tecspda)
+- 📖 **Репозиторий используется в статье**: [Как создать и развернуть приложение на Next.js: быстрый и простой деплой с Apps](https://timeweb.cloud/tutorials/cloud/kak-razvernut-prilozhenie-na-next-js)
+
 # Next.js rss news filter
 This is a demo project for [Timeweb Cloud Apps](https://timeweb.cloud/services/apps). You can freely use it in your developments
 
