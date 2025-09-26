@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div className="grid place-content-center h-full">
-      <div className="flex md:flex-col flex-row items-center">
+      <div className="flex flex-col px-3 md:flex-row md:px-0 md:items-center">
         <Image src='./img/savkly.png' width={310} height={354} alt="SavKly" />
         <div className="border p-2 rounded-md">
           <p>Привет, данный сайт находиться на стадии разработки...</p>
