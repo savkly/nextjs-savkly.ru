@@ -1,24 +1,23 @@
 {
-  "name": "nextjs",
+  "name": "nextjs-savkly.ru",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.13",
-    "axios": "^1.7.7",
-    "next": "14.2.12",
-    "postcss": "^8.5.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "tailwindcss": "^4.1.13"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.5.4"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.12"
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.4",
+    "@eslint/eslintrc": "^3"
   }
 }
